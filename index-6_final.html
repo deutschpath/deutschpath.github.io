@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>독일 의사면허 · FSP 준비 · 병원 매칭 - 도이치패스 Deutschpath</title>
+<meta name="description" content="도이치패스는 독일 의사면허(FSP) 준비, 병원 매칭, 독일어 B2-C1 교육까지 지원하는 전문 컨설팅 플랫폼입니다.">
+<meta name="keywords" content="독일 의사, 독일 의사면허, FSP 준비, 의학 독일어, B2 독일어, C1 의학 독일어, 독일 병원 취업, 도이치패스, deutschpath, 독일 정착">
+  <meta property="og:title" content="도이치패스 | Deutschpath Consulting">
+  <meta property="og:description" content="독일에서 의사로 진출하려는 분들을 위한 맞춤형 독일어 교육과 병원 매칭 컨설팅을 제공합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://deutschpath.de">
+  <meta property="og:image" content="https://deutschpath.de/assets/og-image.png">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #fff;
+      color: #111;
+      overflow-x: hidden;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #111;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 1000;
+    }
+    .nav-logo { font-weight: bold; font-size: 1.2rem; }
+    .nav-menu a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .splash {
+      position: fixed;
+      background: #fff;
+      width: 100%;
+      height: 100%;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 1s ease;
+    }
+    .splash img {
+      width: 200px;
+    }
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: url('doctors-bg.jpg') center/cover no-repeat;
+      position: relative;
+      color: white;
+      padding: 0 20px;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+    }
+    header h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      z-index: 1;
+    }
+    .tagline {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-top: 1rem;
+      z-index: 1;
+    }
+    .rotate-keywords {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      z-index: 1;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    .rotate-keywords span {
+      opacity: 0;
+      animation: rotateWords 7.5s linear infinite;
+    }
+    .rotate-keywords span:nth-child(1) { animation-delay: 0s; }
+    .rotate-keywords span:nth-child(2) { animation-delay: 1.5s; }
+    .rotate-keywords span:nth-child(3) { animation-delay: 3s; }
+    .rotate-keywords span:nth-child(4) { animation-delay: 4.5s; }
+    .rotate-keywords span:nth-child(5) { animation-delay: 6s; }
+
+    @keyframes rotateWords {
+      0% { opacity: 0; transform: translateY(10px); }
+      10% { opacity: 1; transform: translateY(0); }
+      20% { opacity: 1; transform: translateY(0); }
+      30% { opacity: 0; transform: translateY(-10px); }
+      100% { opacity: 0; }
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      color: #007aff;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-slider {
+      background: #f5f5f5;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      font-style: italic;
+      animation: fadeSlide 12s infinite;
+    }
+    @keyframes fadeSlide {
+      0%, 33%, 100% { opacity: 1; }
+      16.5%, 49.5% { opacity: 0; }
+    }
+
+    .hospital-map {
+      background: url('germany-map.png') center/contain no-repeat;
+      height: 300px;
+      background-size: contain;
+    }
+
+    .instructors-box {
+      background: #f0f0f0;
+      padding: 24px;
+      border-radius: 8px;
+      font-weight: 500;
+    }
+
+    .ticker-bar {
+      background: #007aff;
+      color: white;
+      padding: 10px;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .ticker-bar span {
+      display: inline-block;
+      padding-right: 50px;
+      animation: tickerMove 20s linear infinite;
+    }
+    @keyframes tickerMove {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .faq-box {
+      border-bottom: 1px solid #ccc;
+      padding: 10px 0;
+      cursor: pointer;
+    }
+    .faq-content {
+      display: none;
+      padding: 10px 0;
+    }
+
+    .center-logo {
+      display: block;
+      margin: 40px auto;
+      width: 180px;
+    }
+
+    @media (max-width: 768px) {
+    .nav-menu a:nth-child(3) { display: block; white-space: pre-line; }
+      header h1 { font-size: 1.6rem; }
+      .tagline { font-size: 0.9rem; }
+      .rotate-keywords { font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body style="padding-top: 70px;">
+<div class="splash" id="splash">
+  <img src="logo.png" alt="Logo">
+</div>
+<nav>
+  <div class="nav-logo"><a href="index.html" style="color:white; text-decoration:none;">Deutschpath Consulting</a></div>
+  <div class="nav-menu" style="display:flex; flex-direction:column; align-items:flex-end;">
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+  </div>
+</nav>
+<header>
+  <h1>독일 의사로서의 커리어,<br>
+    전문가와 함께</h1>
+  <div class="tagline">독일 의사 면허 준비부터 병원 취업까지, 가장 빠르고 안정적인 독일 의사 진입 전략.</div>
+  <div class="rotate-keywords">
+    <span>의사면허</span>
+    <span>FSP 준비</span>
+    <span>병원 매칭</span>
+    <span>비자 안내</span>
+    <span>정착 컨설팅</span>
+  </div>
+</header>
+<section class="testimonials">
+  <h2 style="color:#000; font-weight:700; font-size:1.8rem;">Erfahrungsberichte</h2>
+<div style="width:40px; height:3px; background:#004080; margin:10px auto 30px;"></div>
+  <div class="testimonial-slider">
+    "독일어를 시작한 지 8개월 만에 B2와 FSP를 모두 합격했어요."<br>
+    "FSP를 한국에서 유일하게 가르쳐주실 수 있는 선생님을 만나서, 정말 행운이었습니다."<br>
+    "국내 탑급 선생님들께 매일 수업을 들으니 정말 빠르고 제대로 독일어를 배웠습니다."<br>
+    "현지 에이전시와 연결, 매칭까지 하나부터 열까지 책임있게 케어해주셔서 좋았습니다."<br>
+  </div>
+</section>
+<section class="instructors">
+  <h2 style="color:#000; font-weight:700; font-size:1.8rem;">Vorstellung der Dozenten</h2>
+<div style="width:40px; height:3px; background:#004080; margin:10px auto 30px;"></div>
+  <div class="instructors-box">
+    • 국내 최초 FSP 합격자 배출<br>
+    • 강남 유명 어학원 ‘독일어 일타강사’ 출신<br>
+    • 오직 의료인을 위한 맞춤형 커리큘럼<br>
+    • 맞춤형 그룹수업으로 단기완성에 최적화<br>
+  </div>
+  <img src="logo.png" class="center-logo" alt="로고">
+</section>
+<section class="ticker">
+  <div class="ticker-bar">
+    <span>• 2025년 8월 개강반 접수 중</span>
+    <span>• 7/19 진로컨설팅 설명회 신청 접수 중</span>
+  </div>
+</section>
+
+<style>
+.info-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+.info-section > div {
+  position: relative;
+  z-index: 1;
+}
+</style>
+<section class="info-section" style="background: url('doctors-bg.jpg') center/cover no-repeat; color: white; padding: 60px 20px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; position: relative;" color: white; padding: 60px 20px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+  <div style="flex:1; min-width:250px; padding:20px;">
+    <h2 style="font-size:2rem; font-weight:700; margin-bottom:20px;">Zukunft gestalten</h2>
+    <p style="font-size:1.1rem; line-height:1.6;">
+      독일에서 의사로 일하고 싶으신가요? 저희는 여러분의 커리어를 위해 함께 나아가는 파트너입니다. 지금 바로 설명회에 신청하세요.
+    </p>
+  </div>
+  <div style="flex:1; min-width:250px; padding:20px; background:rgba(255,255,255,0.1); border-radius:12px; color:white; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.3);">
+    <h3 style="font-size:1.2rem; font-weight:600; margin-bottom:20px;">진로컨설팅 설명회 신청</h3>
+    <a href="https://docs.google.com/forms/d/1khROj1BVSb8jDpIvbJFYJXp_5dTrOMk2N6gVynaIh4Y/viewform" 
+       style="display:block; text-align:center; background:#007aff; color:#fff; padding:12px 24px; text-decoration:none; border-radius:8px; font-weight:600;">
+       지금 신청하기
+    </a>
+  </div>
+</section>
+
+<section class="faq">
+  <h2 style="color:#000; font-weight:700; font-size:1.8rem;">Häufig gestellte Fragen</h2>
+<div style="width:40px; height:3px; background:#004080; margin:10px auto 30px;"></div>
+  <div class="faq-box" onclick="toggleFaq(this)">Q. 독일어를 하나도 못해도 시작할 수 있나요?
+    <div class="faq-content">A. 네, 가능합니다. A1 레벨부터 실력 있는 강사진이 효율적으로 실력을 올려드립니다.</div>
+  </div>
+  <div class="faq-box" onclick="toggleFaq(this)">Q. 전체 과정은 얼마나 걸리나요?
+    <div class="faq-content">A. 일반 어학원 대비 평균적으로 두 배 이상의 속도 차이를 기대하실 수 있습니다.</div>
+  </div>
+  <div class="faq-box" onclick="toggleFaq(this)">Q. 주마다 지원방식과 상황이 다르다고 들었는데 맞나요?
+    <div class="faq-content">A. 맞습니다. 현지 협약된 파트너 에이전시에서 실시간 모니터링 하고 있으며, 최적의 방안으로 안내드릴 예정입니다.</div>
+  </div>
+  <div class="faq-box" onclick="toggleFaq(this)">Q. 전문의 취득 후 진로는 어떻게 되나요?
+    <div class="faq-content">A. 대한민국 및 다수 선진국에 신청자격이 주어지며, 세부 내용은 상담 시 안내드립니다.</div>
+  </div>
+</section>
+
+<script>
+  function toggleFaq(el) {
+    const content = el.querySelector('.faq-content');
+    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+  }
+  window.addEventListener("load", function() {
+    const splash = document.getElementById("splash");
+    setTimeout(() => {
+      splash.style.opacity = 0;
+      setTimeout(() => splash.style.display = "none", 1000);
+    }, 1000);
+  });
+</script>
+<section class="contact" style="background:#f2f2f2; padding:60px 20px;">
+  <h2 style="color:#000; font-weight:700; font-size:1.8rem;">Kontakt & Beratung</h2>
+<div style="width:40px; height:3px; background:#004080; margin:10px auto 30px;"></div>
+  <p style="text-align:center; font-size:1.05rem;">
+    독일 의사/치과의사 진출에 대한<br>구체적인 상담을 원하신다면
+  </p>
+  <div style="display:flex; justify-content:center; align-items:center; gap:12px; margin-top:30px; flex-wrap:wrap;">
+    <a href="http://pf.kakao.com/_jIxdan" target="_blank" style="display:flex; align-items:center; justify-content:center; width:60px; height:60px; border-radius:12px; background:#FEE500;">
+      <img src="kakao-icon.png" alt="카카오톡" style="width:35px; height:35px;">
+    </a>
+    <a href="mailto:deutschpath@gmail.com" 
+       style="background:#007aff; color:#fff; padding:12px 24px; text-decoration:none; border-radius:8px; font-weight:600;">
+       메일 보내기
+    </a>
+    
+  </div>
+
+  <div style="text-align:center; font-size:0.9rem; margin-top:30px; line-height:1.6;">
+    상호명 : 도이치패스<br>
+    사업자등록번호 : 697-06-03007<br>
+    주소 : 서울특별시 영등포구 국회대로38길 8, 4층 403호
+  </div>
+
+  <div style="text-align:center; font-size:0.75rem; color:#888; margin-top:20px;">
+    COPYRIGHT(C) DEUTSCHPATH CONSULTING. ALL RIGHTS RESERVED. deutschpath@gmail.com
+  </div>
+</section>
+</body>
+</html>
